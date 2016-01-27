@@ -6,7 +6,6 @@ RUN export DEBIAN_FRONTEND=noninteractive; \
   apt-get install -yV -o DPkg::Options::=--force-confold \
       apt-transport-https \
       ssh \
-      vim \
       wget && \
   \
   apt-get clean && \
