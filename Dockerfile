@@ -1,9 +1,9 @@
 FROM debian:wheezy
 MAINTAINER Arnold Bechtoldt <mail@arnoldbechtoldt.com>
 
-RUN export DEBIAN_FRONTEND=noninteractive; \
-  apt-get update -qq && \
-  apt-get install -yV -o DPkg::Options::=--force-confold \
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update -qq && \
+    apt-get install -yV -o DPkg::Options::=--force-confold \
       apt-transport-https \
       ssh \
       wget && \
@@ -21,9 +21,8 @@ RUN ln -s /usr/bin/eu-readelf /usr/bin/readelf
 RUN wget -O - https://rex.linux-files.org/DPKG-GPG-KEY-REXIFY-REPO | apt-key add -
 RUN echo "deb https://rex.linux-files.org/debian/ wheezy rex" >> /etc/apt/sources.list
 
-RUN export DEBIAN_FRONTEND=noninteractive; \
-  apt-get update -qq && \
-  apt-get install -yV -o DPkg::Options::=--force-confold \
+RUN apt-get update -qq && \
+    apt-get install -yV -o DPkg::Options::=--force-confold \
     cpanminus \
     elfutils \
     gcc \
