@@ -7,7 +7,7 @@ RUN export DEBIAN_FRONTEND=noninteractive; \
       apt-transport-https \
       ssh \
       vim \
-      wget
+      wget && \
   \
   apt-get clean && \
   rm -rf \
@@ -32,7 +32,7 @@ RUN export DEBIAN_FRONTEND=noninteractive; \
     libnet-sftp-foreign-perl \
     libpar-packer-perl \
     make \
-    rex \
+    rex && \
   \
   apt-get clean && \
   rm -rf \
